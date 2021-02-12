@@ -36,7 +36,6 @@ Test rows input
 def test_valid_rows():
     e = Engine()
     test_validate("Testing validate rows with invalid char", False, e._Engine__validate_and_assign_rows("a"))
-    e = Engine()
     test_validate("Testing validate rows with 0 rows", False, e._Engine__validate_and_assign_rows("0"))
     for rows in range(1, 100):
         r = str(rows)
@@ -163,36 +162,36 @@ def test_game_iterate_win():
     test_validate("Testing game row at 4th win iteration", 4, e._Engine__crt_row)
 
 '''
-Test the game iterate function when loosing
+Test the game iterate function when losing
 '''
-def test_game_iterate_win():
+def test_game_iterate_lose():
     e = Engine()
     e._Engine__code = [1, 2, 3, 4]
     e._Engine__rows = 4
     res = e._Engine__game_iterate([4, 3, 2, 1])
-    test_validate("Testing full matches at 1st win iteration", 0, res["full_matches"])
-    test_validate("Testing partial matches at 1st win iteration", 4, res["partial_matches"])
-    test_validate("Testing game over at 1st win iteration", False, e._Engine__game_over)
-    test_validate("Testing win at 1st win iteration", False, e._Engine__win)
-    test_validate("Testing game row at 1st win iteration", 1, e._Engine__crt_row)
+    test_validate("Testing full matches at 1st lose iteration", 0, res["full_matches"])
+    test_validate("Testing partial matches at 1st lose iteration", 4, res["partial_matches"])
+    test_validate("Testing game over at 1st lose iteration", False, e._Engine__game_over)
+    test_validate("Testing win at 1st lose iteration", False, e._Engine__win)
+    test_validate("Testing game row at 1st lose iteration", 1, e._Engine__crt_row)
     res = e._Engine__game_iterate([0, 3, 1, 2])
-    test_validate("Testing full matches at 2nd win iteration", 0, res["full_matches"])
-    test_validate("Testing partial matches at 2nd win iteration", 3, res["partial_matches"])
-    test_validate("Testing game over at 2nd win iteration", False, e._Engine__game_over)
-    test_validate("Testing win at 2nd win iteration", False, e._Engine__win)
-    test_validate("Testing game row at 2nd win iteration", 2, e._Engine__crt_row)
+    test_validate("Testing full matches at 2nd lose iteration", 0, res["full_matches"])
+    test_validate("Testing partial matches at 2nd lose iteration", 3, res["partial_matches"])
+    test_validate("Testing game over at 2nd lose iteration", False, e._Engine__game_over)
+    test_validate("Testing win at 2nd lose iteration", False, e._Engine__win)
+    test_validate("Testing game row at 2nd lose iteration", 2, e._Engine__crt_row)
     res = e._Engine__game_iterate([1, 2, 2, 3])
-    test_validate("Testing full matches at 3rd win iteration", 2, res["full_matches"])
-    test_validate("Testing partial matches at 3rd win iteration", 1, res["partial_matches"])
-    test_validate("Testing game over at 3rd win iteration", False, e._Engine__game_over)
-    test_validate("Testing win at 3rd win iteration", False, e._Engine__win)
-    test_validate("Testing game row at 3rd win iteration", 3, e._Engine__crt_row)
+    test_validate("Testing full matches at 3rd lose iteration", 2, res["full_matches"])
+    test_validate("Testing partial matches at 3rd lose iteration", 1, res["partial_matches"])
+    test_validate("Testing game over at 3rd lose iteration", False, e._Engine__game_over)
+    test_validate("Testing win at 3rd lose iteration", False, e._Engine__win)
+    test_validate("Testing game row at 3rd lose iteration", 3, e._Engine__crt_row)
     res = e._Engine__game_iterate([1, 2, 3, 0])
-    test_validate("Testing full matches at 4th win iteration", 3, res["full_matches"])
-    test_validate("Testing partial matches at 4th win iteration", 0, res["partial_matches"])
-    test_validate("Testing game over at 4th win iteration", True, e._Engine__game_over)
-    test_validate("Testing win at 4th win iteration", False, e._Engine__win)
-    test_validate("Testing game row at 4th win iteration", 4, e._Engine__crt_row)
+    test_validate("Testing full matches at 4th lose iteration", 3, res["full_matches"])
+    test_validate("Testing partial matches at 4th lose iteration", 0, res["partial_matches"])
+    test_validate("Testing game over at 4th lose iteration", True, e._Engine__game_over)
+    test_validate("Testing win at 4th lose iteration", False, e._Engine__win)
+    test_validate("Testing game row at 4th lose iteration", 4, e._Engine__crt_row)
 
 if __name__ == "__main__":
     test_valid_rows()
@@ -203,3 +202,4 @@ if __name__ == "__main__":
     test_full_matches()
     test_partial_matches()
     test_game_iterate_win()
+    test_game_iterate_lose()
