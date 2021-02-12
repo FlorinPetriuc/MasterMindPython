@@ -29,6 +29,7 @@ class Engine:
         self.__crt_row = 0
         self.__variations = 0
         self.__code = []
+
     '''
     Validates the input string and assigns the value to the __rows variable
     '''
