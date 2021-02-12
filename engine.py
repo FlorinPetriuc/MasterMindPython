@@ -120,7 +120,7 @@ class Engine:
                 print("Invalid input " + pegs + " (Peg must not be greater than variations))")
                 return None
             if peg < 0:
-                print("Invalid input " + pegs + " (Peg must be a psotive number))")
+                print("Invalid input " + pegs + " (Peg must be a positive number))")
                 return None
         return ret
 
